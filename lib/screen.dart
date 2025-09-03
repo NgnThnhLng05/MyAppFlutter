@@ -17,6 +17,12 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.blue,
         ),
         body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("lib/assets/images/background.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
           alignment: Alignment.center,
           padding: EdgeInsets.all(20),
           child: Column(
@@ -115,7 +121,13 @@ class NhapThongTinNhanVienScreenState
         ),
         backgroundColor: Colors.blue,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("lib/assets/images/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(20),
         child: Form(
           key: _formKey,
@@ -178,7 +190,6 @@ class NhapThongTinNhanVienScreenState
 class DanhSachNhanVienScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -187,38 +198,46 @@ class DanhSachNhanVienScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.blue,
       ),
-      body: dsNhanVien.isEmpty
-          ? Center(
-              child: Text(
-                "Danh sách trống",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            )
-          : Padding(
-              padding: EdgeInsets.all(20),
-              child: ListView.builder(
-                itemCount: dsNhanVien.length,
-                itemBuilder: (_, index) {
-                  final nv = dsNhanVien[index];
-                  return Card(
-                    margin: EdgeInsets.all(10),
-                    color: Colors.yellow.shade100,
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        child: Text(
-                          nv.sbd,
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      title: Text(nv.hoTen),
-                      subtitle: Text(
-                        "Tuổi: ${nv.tuoi} | Loại: ${nv.loai} | Lương cơ bản: ${nv.luongCB} |",
-                      ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("lib/assets/images/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: dsNhanVien.isEmpty
+            ? Center(
+          child: Text(
+            "Danh sách trống",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        )
+            : Padding(
+          padding: EdgeInsets.all(20),
+          child: ListView.builder(
+            itemCount: dsNhanVien.length,
+            itemBuilder: (_, index) {
+              final nv = dsNhanVien[index];
+              return Card(
+                margin: EdgeInsets.all(10),
+                color: Colors.yellow.shade100,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    child: Text(
+                      nv.sbd,
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  );
-                },
-              ),
-            ),
+                  ),
+                  title: Text(nv.hoTen),
+                  subtitle: Text(
+                    "Tuổi: ${nv.tuoi} | Loại: ${nv.loai} | Lương cơ bản: ${nv.luongCB} |",
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
     );
   }
 }
@@ -299,7 +318,13 @@ class XoaNhanVienScreenState extends State<XoaNhanVienScreen> {
         ),
         backgroundColor: Colors.blue,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("lib/assets/images/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(20),
         child: Form(
           key: _formKey,
@@ -348,7 +373,7 @@ class TimNhanVienScreenState extends State<TimNhanVienScreen> {
     if (_formKey.currentState!.validate()) {
       final sbd = _sbdCtrl.text.trim();
       final nv = dsNhanVien.firstWhere(
-        (nv) => nv.sbd == sbd,
+            (nv) => nv.sbd == sbd,
         orElse: () =>
             NhanVien(sbd: "", hoTen: "", tuoi: 0, loai: "", luongCB: 0),
       );
@@ -377,7 +402,13 @@ class TimNhanVienScreenState extends State<TimNhanVienScreen> {
         ),
         backgroundColor: Colors.blue,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("lib/assets/images/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(20),
         child: Form(
           key: _formKey,
@@ -426,12 +457,12 @@ class ChinhSuaNhanVienScreenState extends State<ChinhSuaNhanVienScreen> {
   @override
   void initState() {
     super.initState();
-      _hotenCtrl = TextEditingController(text: widget.nhanVien.hoTen);
-      _tuoiCtrl = TextEditingController(text: widget.nhanVien.tuoi.toString());
-      _loaiCtrl = TextEditingController(text: widget.nhanVien.loai);
-      _luongCBCtrl = TextEditingController(
-        text: widget.nhanVien.luongCB.toString(),
-      );
+    _hotenCtrl = TextEditingController(text: widget.nhanVien.hoTen);
+    _tuoiCtrl = TextEditingController(text: widget.nhanVien.tuoi.toString());
+    _loaiCtrl = TextEditingController(text: widget.nhanVien.loai);
+    _luongCBCtrl = TextEditingController(
+      text: widget.nhanVien.luongCB.toString(),
+    );
   }
 
   void chinhSuaNhanVien() {
@@ -455,7 +486,13 @@ class ChinhSuaNhanVienScreenState extends State<ChinhSuaNhanVienScreen> {
         ),
         backgroundColor: Colors.blue,
       ),
-      body: Padding(
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("lib/assets/images/background.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(20),
         child: Form(
           key: _formKey,
